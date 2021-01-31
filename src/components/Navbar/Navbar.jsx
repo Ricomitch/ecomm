@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   AppBar,
-  ToolBar,
+  Toolbar,
   IconButton,
   Badge,
   Menu,
@@ -10,13 +10,14 @@ import {
 import { ShoppingCart } from '@material-ui/icons'
 
 import logo from '../../assets/nike-logo.png'
-import classes from '*.module.css'
+import useStyles from './styles'
 
 const Navbar = () => {
+  const classes = useStyles()
   return (
     <>
       <AppBar position='fixed' className={classes.appBar} color='inherit'>
-        <ToolBar>
+        <Toolbar>
           <Typography variant='h6' className={classes.title} color='inherit'>
             <img
               src={logo}
@@ -24,15 +25,16 @@ const Navbar = () => {
               height='25px'
               className={classes.image}
             />
-            Nike
           </Typography>
           <div className={classes.grow} />
           <div className={classes.button}>
             <IconButton aria-label='Show cart items' color='inherit'>
-              <Badge badgeContent={2}></Badge>
+              <Badge badgeContent={2} color='secondary'>
+                <ShoppingCart />
+              </Badge>
             </IconButton>
           </div>
-        </ToolBar>
+        </Toolbar>
       </AppBar>
     </>
   )
